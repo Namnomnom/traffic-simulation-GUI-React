@@ -1,53 +1,23 @@
 # traffic-simulation-GUI-React
 
-Dieses Repository dokumentiert die technische Infrastruktur und das Setup der Entwicklungsumgebung für die Masterarbeit.
+Das Projekt „Traffic Simulation GUI – React“ dient der Umsetzung einer modernen, containerbasierten Webanwendung zur Visualisierung von Verkehrssimulationen.
+Mithilfe von React, FastAPI, PostgreSQL/TimescaleDB und Docker Compose entsteht eine flexible Architektur, die sowohl Simulationsergebnisse als auch Echtzeit-Verkehrsdaten speichern, verarbeiten und interaktiv darstellen kann.
 
 ---
 
-## 📘 Ziel
+## Ersten Schritte zur Erstellung der eigenen Verkehrssimulation (Installation)
 
-Ziel dieses Projekts ist der Aufbau einer containerisierten Umgebung für eine Verkehrssimulationsplattform mit einer TimescaleDB-Datenbank, einer Verwaltungsoberfläche (pgAdmin) sowie einer Node.js-/React-Entwicklungsumgebung.
+Die folgenden Schritte erläutern die Installation und Konfiguration aller benötigten Komponenten, um eine eigene Verkehrssimulation lokal entwickeln und ausführen zu können.
 
 ---
 
-## 🐳 Docker & Docker Compose
+## 🐳 Docker & Docker Compose (Installation)
 
 ### Installierte Software
-- **Docker Desktop**  
-- **Docker Compose**
+- Docker Desktop von https://www.docker.com/products/docker-desktop herunterladen und installieren.  
+- Nach der Installation sicherstellen, dass Docker läuft:
 
-### docker-compose.yml
-```yaml
-services:
-  postgres:
-    image: timescale/timescaledb-ha:pg14-latest
-    container_name: postgres_db
-    restart: always
-    environment:
-      POSTGRES_USER: masteruser
-      POSTGRES_PASSWORD: masterpass
-      POSTGRES_DB: traffic_data
-    ports:
-      - "5432:5432"
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
-    networks:
-      - traffic-net
-
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: unless-stopped
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "admin@trafficmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "admin123"
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgres
-    networks:
-      - traffic-net
-
-networks:
-  traffic-net:
-    driver: bridge
+##### bash (Installation & aktuelle Version prüfen)
+```bash
+docker --version
+docker compose version
