@@ -4,14 +4,11 @@ Das Projekt „Traffic Simulation GUI – React“ dient der Umsetzung einer mod
 Mithilfe von React, FastAPI, PostgreSQL/TimescaleDB und Docker Compose entsteht eine flexible Architektur, die sowohl Simulationsergebnisse als auch Echtzeit-Verkehrsdaten speichern, verarbeiten und interaktiv darstellen kann.
 
 ---
-
 ## Ersten Schritte zur Erstellung der eigenen Verkehrssimulation (Installation)
-
 Die folgenden Schritte erläutern die Installation und Konfiguration aller benötigten Komponenten, um eine eigene Verkehrssimulation lokal entwickeln und ausführen zu können.
 
 ---
-
-## 🐳 Docker & Docker Compose (Installation)
+## 1. 🐳 Docker & Docker Compose (Installation)
 
 ### Installierte Software
 - Docker Desktop von https://www.docker.com/products/docker-desktop herunterladen und installieren.  
@@ -21,3 +18,9 @@ Die folgenden Schritte erläutern die Installation und Konfiguration aller benö
 ```bash
 docker --version
 docker compose version
+```
+→ Wenn beide Befehle Versionen ausgeben, ist Docker korrekt installiert.
+
+---
+## 2. 🐘 Einrichtung der PostgreSQL-Datenbank mit TimescaleDB und pgAdmin
+Erstelle im Projektverzeichnis eine Datei docker-compose.yml (Beispiel unter Ordner "Infrastruktur")
