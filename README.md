@@ -23,4 +23,5 @@ docker compose version
 
 ---
 ## 2. 🐘 Einrichtung der PostgreSQL-Datenbank mit TimescaleDB und pgAdmin
-Erstelle im Projektverzeichnis eine Datei docker-compose.yml (Beispiel unter Ordner "Infrastruktur")
+Erstelle im Projektverzeichnis eine Datei `docker-compose.yml` (Beispiel unter Ordner [Infrastruktur](./Infrastruktur))
+
