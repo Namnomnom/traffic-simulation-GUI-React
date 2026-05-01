@@ -1,0 +1,1 @@
+Hier im Github befindet sich nicht die vollständige Datei der Verkehrssimulation, da die Datei zu viel Speicherplatz beansprucht (mehr als 10GB). Hier im Projekt befinden sich die wichtigsten Dateien & die Systemarchitektur der Verkehrssimulation. Hier wird gezeigt wie die Gesamtstruktur der Verkehrssimulation aufgebaut wurde.
