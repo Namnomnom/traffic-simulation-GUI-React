@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<net version="1.9"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <!-- sehr einfache Test-Strecke: ein Edge von Knoten n0 zu n1 -->
+    <location netOffset="0.0,0.0"
+              convBoundary="0.0,0.0,500.0,0.0"
+              origBoundary="0.0,0.0,500.0,0.0"
+              projParameter="!"/>
+
+    <edge id="edge0" from="n0" to="n1" priority="1">
+        <lane id="edge0_0" index="0" speed="13.9" length="500.0" shape="0.0,0.0 500.0,0.0"/>
+    </edge>
+
+    <junction id="n0" x="0.0" y="0.0" type="priority"/>
+    <junction id="n1" x="500.0" y="0.0" type="priority"/>
+
+</net>
