@@ -1,0 +1,1061 @@
+/* frontend/src/index.css */
+/* ================================================
+   OPTIMIERTE VERSION – Verkehrssimulation GUI
+   ================================================ */
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  overflow: hidden;
+}
+
+.app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Toolbar */
+.app-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  height: 48px;
+  border-bottom: none;
+  background: #1a3a5c;
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+}
+
+.app-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+}
+
+.app-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+  white-space: nowrap;
+  margin-right: 4px;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.toolbar-select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.toolbar-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Toolbar Buttons */
+.toolbar-btn.toolbar-btn--sim {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.toolbar-btn.toolbar-btn--sim:hover {
+  opacity: 0.88;
+}
+
+.toolbar-btn.toolbar-btn--sim:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.toolbar-btn.toolbar-btn--start {
+  background: #22c55e;
+  color: #ffffff;
+}
+
+.toolbar-btn.toolbar-btn--pause {
+  background: #f59e0b;
+  color: #ffffff;
+}
+
+.toolbar-btn.toolbar-btn--reset {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.toolbar-btn.toolbar-btn--reset:hover {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+/* Geschwindigkeit */
+.speed-group {
+  display: flex;
+  gap: 2px;
+}
+
+.speed-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.speed-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.speed-btn.active {
+  background: #378add;
+  color: #ffffff;
+  border-color: #378add;
+}
+
+/* Status */
+.app-toolbar-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.app-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #ef4444;
+}
+
+.status-dot--running {
+  background: #22c55e;
+}
+
+.status-dot--paused {
+  background: #f59e0b;
+}
+
+.status-text {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.status-time {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+}
+
+/* App Body */
+.app-body {
+  flex: 1 1 auto;
+  display: flex;
+  min-height: 0;
+  height: 100%;
+}
+
+/* Sidebar */
+.app-sidebar {
+  width: 240px;
+  border-right: 1px solid #e5e5e0;
+  background: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.sidebar-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-section {
+  border-bottom: 1px solid #eeeeea;
+  padding: 10px 12px;
+  flex-shrink: 0;
+}
+
+.sidebar-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.sidebar-footer {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  border-top: 1px solid #eeeeea;
+  background: #ffffff;
+}
+
+.app-sidebar h2 {
+  margin: 6px 0 6px;
+  font-size: 14px;
+  color: #1a3a5c;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 0;
+}
+
+.empty-state__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ebf3fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.empty-state__text {
+  font-size: 13px;
+  color: #999999;
+  text-align: center;
+  line-height: 1.45;
+  max-width: 160px;
+}
+
+/* Sidebar Tools */
+.sidebar-tools {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-top {
+  flex: 0 0 auto;
+}
+
+.sidebar-collapse-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+}
+
+.sidebar-collapse-btn:hover {
+  background: #f5f5f0;
+}
+
+.sidebar-top label {
+  font-size: 13px;
+}
+
+.sidebar-top input[type="checkbox"] {
+  transform: scale(0.95);
+  accent-color: #1a3a5c;
+}
+
+.sidebar-middle {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Fahrzeuge */
+.vehicles-card {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.vehicle-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a3a5c;
+  margin-bottom: 8px;
+}
+
+.vehicles-list-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: grid;
+  gap: 5px;
+  padding-right: 4px;
+}
+
+.vehicles-list-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+
+.vehicles-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.vehicles-list-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.vehicles-actions {
+  flex: 0 0 auto;
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.sidebar-bottom {
+  flex: 0 0 auto;
+  background: #ffffff;
+}
+
+.sidebar-bottom .tool-button {
+  margin-bottom: 6px;
+}
+
+.sidebar-selected-panel {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 3.1rem;
+  z-index: 50;
+  pointer-events: auto;
+}
+
+/* Buttons */
+.tool-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.4rem;
+  padding: 0.45rem 0.65rem;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f5f5f0;
+  color: #333;
+  text-align: left;
+  transition: background 0.1s ease;
+}
+
+.tool-button:hover {
+  background: #ebebeb;
+}
+
+.tool-button.active {
+  background: #1a3a5c;
+  color: #fff;
+  border-color: transparent;
+}
+
+.tool-button.compact {
+  padding: 0.35rem 0.55rem;
+  margin-bottom: 0.35rem;
+  font-size: 12px;
+}
+
+.tool-button:disabled,
+.tool-button[disabled] {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f5f5f0;
+}
+
+.tool-hint {
+  margin-top: 0.6rem;
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+}
+
+.add-vehicle-btn {
+  flex: 1;
+  background: #1a3a5c;
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: opacity 0.15s ease;
+}
+
+.add-vehicle-btn:hover {
+  opacity: 0.88;
+}
+
+.scenario-btn {
+  width: 100%;
+  background: #ebf3fb;
+  border: 1px solid #b5d4f4;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #0c447c;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.1s ease;
+}
+
+.scenario-btn:hover {
+  background: #d9eaf8;
+}
+
+/* LSA */
+.lsa-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lsa-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ef4444;
+  flex-shrink: 0;
+}
+
+/* Map */
+.app-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-root {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 80;
+}
+
+.map-overlay > * {
+  pointer-events: auto;
+}
+
+/* Dialog */
+.vehicle-dialog-backdrop,
+.vehicle-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.vehicle-dialog {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  min-width: 260px;
+  max-width: 320px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.vehicle-dialog h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a3a5c;
+}
+
+.vehicle-dialog-types {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px 0 14px;
+}
+
+.vehicle-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.primary-button {
+  padding: 7px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #1a3a5c;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.primary-button:hover {
+  opacity: 0.88;
+}
+
+.secondary-button {
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid #d4d4d4;
+  background: #f3f4f6;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.secondary-button:hover {
+  background: #e5e7eb;
+}
+
+.vehicle-dialog-info {
+  margin: 0 0 0.5rem 0;
+  font-size: 13px;
+  color: #666;
+}
+
+.vehicle-marker-icon {
+  background: transparent;
+  border: none;
+}
+
+.vehicle-marker-emoji {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+/* Traffic Light Panel */
+.tl-card {
+  width: 260px;
+  background: rgba(18, 18, 20, 0.72);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  color: #f2f2f2;
+  overflow: hidden;
+}
+
+.tl-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tl-card__titlewrap {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tl-card__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tl-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tl-card__subtitle {
+  font-size: 13px;
+  opacity: 0.65;
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tl-iconbtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+.tl-iconbtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.tl-iconbtn:active {
+  transform: translateY(1px);
+}
+
+.tl-card__meta {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+.tl-pill {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tl-pill__k {
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+.tl-pill__v {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tl-card__section {
+  padding: 10px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tl-card__row,
+.tl-card__row2 {
+  display: flex;
+  gap: 8px;
+}
+
+.tl-input {
+  width: 80px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.tl-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+}
+
+.tl-range {
+  width: 100%;
+  accent-color: #fff;
+}
+
+.tl-btn {
+  flex: 1;
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tl-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.tl-btn:active {
+  transform: translateY(1px);
+}
+
+.tl-btn--ghost {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tl-card__divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 4px 0;
+}
+
+.tl-btn--danger {
+  background: rgba(255, 80, 80, 0.18);
+  border-color: rgba(255, 80, 80, 0.45);
+}
+
+.tl-btn--danger:hover {
+  background: rgba(255, 80, 80, 0.28);
+}
+
+.tl-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tl-switch input {
+  display: none;
+}
+
+.tl-switch__track {
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  position: relative;
+  transition: 150ms ease;
+}
+
+.tl-switch__track::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #111;
+  transform: translateY(-50%);
+  transition: 150ms ease;
+}
+
+.tl-switch input:checked + .tl-switch__track {
+  background: rgba(100, 200, 255, 0.55);
+}
+
+.tl-switch input:checked + .tl-switch__track::after {
+  left: 21px;
+}
+
+.tl-switch__label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+/* Compact Traffic Light Panel */
+.tl-card.tl-card--compact {
+  width: 220px;
+  max-width: calc(100vw - 24px);
+}
+
+.tl-card.tl-card--compact .tl-card__header {
+  padding: 8px 9px;
+}
+
+.tl-card.tl-card--compact .tl-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 8px;
+}
+
+.tl-card.tl-card--compact .tl-card__title {
+  font-size: 13.5px;
+  gap: 7px;
+}
+
+.tl-card.tl-card--compact .tl-card__subtitle {
+  font-size: 11.5px;
+  max-width: 160px;
+}
+
+.tl-card.tl-card--compact .tl-card__meta {
+  padding: 6px 9px;
+  gap: 6px;
+}
+
+.tl-card.tl-card--compact .tl-pill {
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+.tl-card.tl-card--compact .tl-pill__k {
+  font-size: 11px;
+}
+
+.tl-card.tl-card--compact .tl-pill__v {
+  font-size: 11.5px;
+}
+
+.tl-card.tl-card--compact .tl-card__section {
+  padding: 7px 9px 9px;
+  gap: 7px;
+}
+
+.tl-card.tl-card--compact .tl-card__row2 {
+  gap: 6px;
+}
+
+.tl-card.tl-card--compact .tl-btn {
+  padding: 6px 8px;
+  border-radius: 10px;
+  font-size: 11.8px;
+}
+
+.tl-card.tl-card--compact .tl-card__divider {
+  margin: 2px 0;
+}
+
+.tl-card.tl-card--compact .tl-range {
+  height: 18px;
+}
+
+.tl-card.tl-card--compact .tl-btn--danger {
+  padding: 7px 8px;
+}
+
+/* KPI Panel */
+.kpi-panel {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  z-index: 85;
+  width: 220px;
+  max-width: calc(100vw - 32px);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a3a5c;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.kpi-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kpi-panel__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.kpi-panel__badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.kpi-panel__state {
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.kpi-panel__toggle {
+  width: 30px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-panel__toggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.kpi-panel__body {
+  padding: 10px 12px 12px;
+}
+
+.kpi-panel__mini {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 10px 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.kpi-card {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kpi-card__k {
+  font-size: 11px;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+.kpi-card__v {
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.kpi-card__s {
+  margin-top: 2px;
+  font-size: 11px;
+  opacity: 0.65;
+}
+
+.kpi-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
+.kpi-score__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.kpi-score__label {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.kpi-score__value {
+  font-size: 12px;
+}
+
+.kpi-score__bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kpi-score__barFill {
+  height: 100%;
+  background: rgba(34, 197, 94, 0.85);
+}
+
+.kpi-hints {
+  margin-top: 8px;
+  display: grid;
+  gap: 5px;
+}
+
+.kpi-hint {
+  font-size: 11px;
+  opacity: 0.72;
+  line-height: 1.35;
+}
+
+.kpi-panel--closed .kpi-panel__body {
+  display: none;
+}
