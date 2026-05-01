@@ -1,0 +1,8 @@
+# Diese Datei sagt dem Python-Ökosystem:
+# Ich bin ein Projekt namens traffic-backend, in Version 0.1.0,
+# und ich brauche mindestens Python 3.11, um zu funktionieren.
+
+[project]
+name = "traffic-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
