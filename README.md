@@ -6,7 +6,7 @@ Mithilfe von React, FastAPI, PostgreSQL/TimescaleDB und Docker Compose entsteht 
 
 <img width="1919" height="916" alt="Verkehrssimulation_GUI" src="https://github.com/user-attachments/assets/492be7db-9854-41ba-b271-8741c980f6ea" />
 
-> [!NOTE]
+> [!Hinweis]
 > Um die Verkehrs­simulationssoftware lokal starten und ausführen zu können, muss Docker bzw. Docker Desktop installiert sein.  
 > Die Anwendung wird containerbasiert mit Docker Compose ausgeführt.
 ---
