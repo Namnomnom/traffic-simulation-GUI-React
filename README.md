@@ -62,7 +62,7 @@ docker logs postgres_db
 
 ---
 ## 3. 🧠 Verbindung von pgAdmin zur Datenbank
-1. Öffne im Browser: http://localhost:5050
+1. Öffne im Browser: zB (http://localhost:5050)
 2. Melde dich mit den oben angegebenen Zugangsdaten an.
 3. Wähle „Add New Server“ → Register - Server
 4. Fülle die Felder wie folgt aus:
