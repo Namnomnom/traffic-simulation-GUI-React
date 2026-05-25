@@ -1,3 +1,4 @@
+<img width="1919" height="916" alt="Verkehrssimulation_GUI" src="https://github.com/user-attachments/assets/492be7db-9854-41ba-b271-8741c980f6ea" />
 # traffic-simulation-GUI-React
 
 Das Projekt „Traffic Simulation GUI – React“ dient der Umsetzung einer modernen, containerbasierten Webanwendung zur Visualisierung von Verkehrssimulationen.
